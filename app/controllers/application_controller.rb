@@ -1,4 +1,12 @@
 class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  before_action :global_site_settings
+
+  include Optimadmin::AdminSessionsHelper
+  helper_method :current_administrator
+
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: -> { render_error(500) }
     rescue_from ActiveRecord::RecordNotFound, with: -> { render_error(404) }
@@ -12,13 +20,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-  before_action :global_site_settings
-  include Optimadmin::AdminSessionsHelper
-  helper_method :current_administrator  
-
   def index
   end
 
@@ -28,6 +29,4 @@ class ApplicationController < ActionController::Base
     @global_site_settings ||= Optimadmin::SiteSetting.current_environment
   end
   helper_method :global_site_settings
-
-
 end
