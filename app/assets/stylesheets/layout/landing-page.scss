@@ -1,0 +1,67 @@
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.my-brands {
+  @include grid-row;
+  margin: 2% auto 0;
+  padding: rem(50px) rem(20px);
+
+  p {
+    font-family: $lato;
+    font-size: rem(15px);
+    line-height: 1.73;
+    margin: rem(24px) 0 rem(44px);
+  }
+}
+
+.my-brand {
+  @include grid-column(
+    $columns: 4,
+    $gutter: (small: 0)
+  );
+  padding: 3%;
+  text-align: center;
+}
+
+.my-brand-logo {
+  display: block;
+  margin: rem(40px) 0;
+}
+
+.my-brand-button {
+  background: $shaded-black;
+  border: 2px solid $white;
+  border-radius: 25px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: rem(12px);
+  font-weight: $montserrat-bold;
+  line-height: 1.6;
+  margin: 0 1% rem(45px);
+  padding: 1% 8%;
+  text-transform: uppercase;
+  transition: background-color 350ms ease-in;
+
+  &:hover {
+    background: $turquoise;
+    color: $shaded-black;
+  }
+}
+
+.my-design-team {
+  background: $turquoise;
+
+  p {
+    color: $white;
+  }
+}
+
+.my-vehicle-wrap {
+  background: $shaded-black;
+
+  p {
+    color: $turquoise;
+  }
+}

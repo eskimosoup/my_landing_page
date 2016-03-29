@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require vendor/modernizr
+//= require vendor/onscreen
+//= require components/animation
+// require_tree .

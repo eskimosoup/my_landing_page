@@ -1,1 +1,47 @@
-<h1>Hello world</h1>
+<div class="my-brands">
+  <div class="my-design-team my-brand visibility-hidden" data-animation-type="fadeInUp">
+    <%= link_to 'http://www.wearemy.co.uk/', title: 'My Design Team', class: 'my-brand-logo' do %>
+      <%= image_tag 'my-design-team.jpg', alt: 'My Design Team' %>
+    <% end %>
+
+    <p>
+      The plain talking, hardworking, full service design agency for
+      companies with big ambitions.
+    </p>
+
+    <%= link_to 'Visit the site', 'http://www.wearemy.co.uk/',
+                                  title: 'Visit My Design Team',
+                                  class: 'my-brand-button' %>
+  </div>
+
+  <div class="my-office-branding my-brand visibility-hidden" data-animation-type="fadeInUp" data-animation-delay="300">
+    <%= link_to 'http://www.myofficebranding.co.uk/', title: 'My Office Branding', class: 'my-brand-logo' do %>
+      <%= image_tag 'my-office-branding.jpg', alt: 'My Office Branding' %>
+    <% end %>
+
+    <p>
+      Brand driven, motivational spaces for your team and  inspirational
+      environments for your customers.
+    </p>
+
+    <%= link_to 'Visit the site', 'http://www.myofficebranding.co.uk/',
+                                  title: 'Visit My Office Branding',
+                                  class: 'my-brand-button' %>
+  </div>
+
+  <div class="my-vehicle-wrap my-brand visibility-hidden" data-animation-type="fadeInUp" data-animation-delay="600">
+    <%= link_to 'http://myvehiclewrap.co.uk/', title: 'My Vehicle Wrap', class: 'my-brand-logo' do %>
+      <%= image_tag 'my-vehicle-wrap.jpg', alt: 'My Vehicle Wrap' %>
+    <% end %>
+
+    <p>
+      Get noticed,<br />
+      be remembered<br />
+      &amp; advertise on the move.
+    </p>
+
+    <%= link_to 'Visit the site', 'http://myvehiclewrap.co.uk/',
+                                  title: 'Visit My Vehicle Wrap',
+                                  class: 'my-brand-button' %>
+  </div>
+</div>
