@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
   <head>
     <%= render 'layouts/shared/head' %>
   </head>
 
   <body>
+    <header class="primary-header">
+      <%= image_tag 'my-logo.png', alt: global_site_settings['Name'],
+                                   class: 'header-logo' %>
+
+      <div class="header-tagline">
+        Designers &bull; Communicators &bull; Business People
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer class="primary-footer">
+      <div class="contact-details">
+        <div class="contact-address">
+          <div>We Are My.</div>
+          Salters House, Salters Court, 156 High Street, Hull, HU1 1NQ
+        </div>
+
+        <div class="contact-telephone-numbers">
+          <a href="tel:+44 (0)113 418 2428">Leeds: 0113 418 2428</a>
+          <a href="tel:+44 (0)1482 762696">Hull: 01482 762696</a>
+          <a href="mailto:hello@wearemy.co.uk">hello@wearemy.co.uk</a>
+        </div>
+      </div>
+
+      <p class="legal-information">
+        MY, MY Design Team, MY Office Branding and MY Vehicle Wrap are trading
+        names of Ludo Studio Ltd. Ludo Studio Ltd is registered under company
+        registration number 06447854 at 156 High Street, Hull, HU1 1NQ.
+        VAT: 932110570
+      </p>
+    </footer>
   </body>
 </html>
