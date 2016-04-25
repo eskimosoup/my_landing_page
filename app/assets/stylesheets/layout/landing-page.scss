@@ -1,5 +1,7 @@
-.visibility-hidden {
-  visibility: hidden;
+@include breakpoint(medium) {
+  .visibility-hidden {
+    visibility: hidden;
+  }
 }
 
 .my-brands {
@@ -12,14 +14,22 @@
     font-size: rem(15px);
     line-height: 1.73;
     margin: rem(24px) 0 rem(44px);
+
+    @include breakpoint(medium) {
+      margin-left: rem(10px);
+      margin-right: rem(10px);
+    }
   }
 }
 
 .my-brand {
-  @include grid-column(
-    $columns: 4,
-    $gutter: (small: 0)
-  );
+  @include breakpoint(medium) {
+    @include grid-column(
+      $columns: 4,
+      $gutter: (small: 0)
+    );
+  }
+
   padding: 3%;
   text-align: center;
 }
