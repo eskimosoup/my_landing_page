@@ -1,4 +1,4 @@
-@include breakpoint(medium) {
+@include media('>=768px') {
   .visibility-hidden {
     visibility: hidden;
   }
@@ -26,7 +26,7 @@
   @include breakpoint(medium) {
     @include grid-column(
       $columns: 4,
-      $gutter: (small: 0)
+      $gutter: (small: 0, medium: 5, large: 0)
     );
   }
 
