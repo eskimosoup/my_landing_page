@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324164233) do
+ActiveRecord::Schema.define(version: 20160531081139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,11 @@ ActiveRecord::Schema.define(version: 20160324164233) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
@@ -39,11 +38,10 @@ ActiveRecord::Schema.define(version: 20160324164233) do
     t.datetime "password_reset_sent_at"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.index ["auth_token"], name: "index_optimadmin_administrators_on_auth_token", using: :btree
+    t.index ["email"], name: "index_optimadmin_administrators_on_email", using: :btree
+    t.index ["username"], name: "index_optimadmin_administrators_on_username", using: :btree
   end
-
-  add_index "optimadmin_administrators", ["auth_token"], name: "index_optimadmin_administrators_on_auth_token", using: :btree
-  add_index "optimadmin_administrators", ["email"], name: "index_optimadmin_administrators_on_email", using: :btree
-  add_index "optimadmin_administrators", ["username"], name: "index_optimadmin_administrators_on_username", using: :btree
 
   create_table "optimadmin_documents", force: :cascade do |t|
     t.string   "name",        null: false
@@ -80,10 +78,9 @@ ActiveRecord::Schema.define(version: 20160324164233) do
     t.integer "ancestor_id",   null: false
     t.integer "descendant_id", null: false
     t.integer "generations",   null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "menu_item_anc_desc_idx", unique: true, using: :btree
+    t.index ["descendant_id"], name: "menu_item_desc_idx", using: :btree
   end
-
-  add_index "optimadmin_menu_item_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "menu_item_anc_desc_idx", unique: true, using: :btree
-  add_index "optimadmin_menu_item_hierarchies", ["descendant_id"], name: "menu_item_desc_idx", using: :btree
 
   create_table "optimadmin_menu_items", force: :cascade do |t|
     t.string   "menu_name",       limit: 100
@@ -96,9 +93,9 @@ ActiveRecord::Schema.define(version: 20160324164233) do
     t.integer  "link_id"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.boolean  "display",                     default: true,  null: false
+    t.index ["link_id"], name: "index_optimadmin_menu_items_on_link_id", using: :btree
   end
-
-  add_index "optimadmin_menu_items", ["link_id"], name: "index_optimadmin_menu_items_on_link_id", using: :btree
 
   create_table "optimadmin_module_pages", force: :cascade do |t|
     t.string   "name"
