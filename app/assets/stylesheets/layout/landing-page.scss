@@ -75,3 +75,15 @@
     color: $turquoise;
   }
 }
+
+.videos-container {
+  @include grid-row;
+}
+
+.video-container {
+  @include grid-column($columns: 8);
+  @include grid-column-position(center);
+}
+.video {
+  @include flex-video(16 by 9);
+}
