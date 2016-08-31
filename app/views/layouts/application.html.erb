@@ -9,8 +9,10 @@
 
   <body>
     <header class="primary-header">
-      <%= image_tag 'my-logo.png', alt: global_site_settings['Name'],
-                                   class: 'header-logo' %>
+      <%= link_to root_url, title: global_site_settings['Name'] do %>
+        <%= image_tag 'my-logo.png', alt: global_site_settings['Name'],
+                                     class: 'header-logo' %>
+      <% end %>
 
       <div class="header-tagline">
         Designers &bull; Communicators &bull; Business People

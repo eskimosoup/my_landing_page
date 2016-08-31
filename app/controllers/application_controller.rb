@@ -23,6 +23,9 @@ class ApplicationController < ActionController::Base
   def index
   end
 
+  def terms
+  end
+
   private
 
   def global_site_settings

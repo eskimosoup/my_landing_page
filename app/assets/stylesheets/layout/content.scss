@@ -1,0 +1,8 @@
+.my-content-page-wrap {
+  @include flex-grid-row;
+}
+
+.my-content-page {
+  @include flex-grid-column(6);
+  margin: 0 auto;
+}
