@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   mount Optimadmin::Engine => '/admin'
 
+  get '/terms', to: 'application#terms'
+
   root to: 'application#index'
 
   # This has to be the last route in your list
