@@ -30,6 +30,10 @@
     );
   }
 
+  @include breakpoint(large) {
+    min-height: 420px;
+  }
+
   padding: 3%;
   text-align: center;
 }
