@@ -25,9 +25,13 @@
 .my-brand {
   @include breakpoint(medium) {
     @include grid-column(
-      $columns: 4,
+      $columns: 3,
       $gutter: (small: 0, medium: 5, large: 0)
     );
+  }
+
+  @include breakpoint(large) {
+    min-height: 420px;
   }
 
   padding: 3%;
@@ -86,4 +90,12 @@
 }
 .video {
   @include flex-video(16 by 9);
+}
+
+.my-internet-marketing {
+  background: $purple;
+
+  p {
+    color: $white;
+  }
 }

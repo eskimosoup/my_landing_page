@@ -1,3 +1,12 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight.js' %>
+  <script>
+    $(document).ready(function() {
+      $('.my-brand').matchHeight();
+    });
+  </script>
+<% end %>
+
 <div class="my-brands">
   <div class="my-design-team my-brand visibility-hidden" data-animation-type="fadeInUp">
     <%= link_to 'http://www.mydesignteam.co.uk/', title: 'My Design Team', class: 'my-brand-logo' do %>
@@ -38,6 +47,21 @@
       Get noticed,<br />
       be remembered<br />
       &amp; advertise on the move.
+    </p>
+
+    <%= link_to 'Visit the site', 'http://myvehiclewrap.co.uk/',
+                                  title: 'Visit My Vehicle Wrap',
+                                  class: 'my-brand-button' %>
+  </div>
+
+  <div class="my-internet-marketing my-brand visibility-hidden" data-animation-type="fadeInUp" data-animation-delay="900">
+    <%= link_to 'http://www.myinternetmarketing.co.uk/', title: 'My Internet Marketing', class: 'my-brand-logo' do %>
+    <%= image_tag 'my-im.png', alt: 'My Internet Marketing' %>
+    <% end %>
+
+    <p>
+      Online lead generation<br />
+      Attract, Engage, Convert
     </p>
 
     <%= link_to 'Visit the site', 'http://myvehiclewrap.co.uk/',
